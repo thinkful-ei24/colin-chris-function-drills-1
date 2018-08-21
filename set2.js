@@ -83,36 +83,33 @@ const randomNo = Math.floor(Math.random() * 3) + 1;
 // function choice(){
 //   let player = console.log(prompt("What is your choice?"));
 // }
-function game(player, randomNo){
 
-    if (player === "rock"){
-        player = 1;
-    } else if(player === "paper"){
-        player = 2;
-    } else {
-        player = 3;
-    }
-    console.log(randomNo);
-    console.log(player);
-    if (player === randomNo){
-        return "It is a tie!";
-    }
-    if(player === 1 && randomNo === 3){
-        return "Player wins!";
-        } else {
-            return "Computer wins with paper!";
-        } 
-    }
-    if(player === 2 && randomNo === 1){
-        return "Player wins!";
-        } else {
-            return "Computer wins with scissors!";
-        }
-    if(player === 3 && randomNo === 2){
-        return "Player wins!";
-        } else {
-            return "Computer wins with rock!";
-        };
-choice();
-game("scissors", randomNo);
+function game(num, randomNo){
+  if (num < 1 || num > 3){
+    throw new Error('please pick 1 for rock, 2 for paper, or 3 for scissors')
+  }
 
+  else if (num === randomNo){
+    console.log("It is a tie!");
+  }
+  else if(num === 1 && randomNo === 3){
+    console.log("Player wins against scissors!");
+  } else {
+    console.log("Computer wins with paper!");
+  } 
+  else if(num === 2 && randomNo === 1){
+    console.log("Player wins!");
+  } else {
+    console.log("Computer wins with scissors!");
+  }
+  else if(num === 3 && randomNo === 2){
+    console.log("Player wins!");
+  } else {
+    console.log("Computer wins with rock!");
+  };
+}
+// choice();
+game(1, randomNo);
+game(2, randomNo);
+game(1, randomNo);
+game(3, randomNo);
